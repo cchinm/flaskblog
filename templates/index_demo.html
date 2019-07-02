@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>JokeDog的Space</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='C.ico') }}"  type="image/x-icon">
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="/static/css/beantech.min.css">-->
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/clean-blog.min.css') }}" rel="stylesheet">
+ <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/blog.js') }}"></script>
+<script>
+
+	$(function() {
+		next(1);
+
+	});
+</script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">JokeDog</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+           <li class="nav-item">
+
+
+              <!--<input type="text"  placeholder="Text input">-->
+             <input id="search-text"  onclick="search();" class="form-control" style="background-color: transparent; border: 0px" placeholder="请搜索后 点击输入框">
+              <!--<button type="submit" hidden onclick="search();"></button>-->
+
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">主页</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../post.html">散文随记</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../post.html">学习笔记</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../post.html">Sample Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/home-bg.jpg') }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>CrazyBlog</h1>
+            <span class="subheading">Easier and Better</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="
+                col-lg-6 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+    <div class="row">
+      <div class="col-lg-12 col-md-10 mx-auto" id="blog-content">
+
+
+
+
+         <div class="clearfix">
+            <a class="btn btn-primary float-left" href="javascrpit:void(0)" onclick="next(0)">&larr; Previous Page</a>
+             <a class="btn btn-primary float-middle" href="#">0</a>
+           <a class="btn btn-primary float-right" href="javascrpit:void(0)" onclick="next(1);">Next Page &rarr;</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-8
+    col-xs-8
+    sidebar-container
+">
+
+        <!-- Featured Tags -->
+
+<section>
+    <!-- no hr -->
+    <h3><a href="#">最近标签</a></h3>
+    <div >
+      <a href="#"><span class="label label-success" >Python</span></a>
+      <a href="#"><span class="label label-default" >Java</span></a>
+      <a href="#"><span class="label label-default" >Kafka</span></a>
+      <a href="#"><span class="label label-info" >数据库</span></a>
+      <a href="#"><span class="label label-info" >机器学习</span></a>
+      <a href="#"><span class="label label-success" >概率统计</span></a>
+      <a href="#"><span class="label label-default" >Tensorflow</span></a>
+      <a href="#"><span class="label label-success" >Scrapy</span></a>
+      <a href="#"><span class="label label-default" >计算机网络</span></a>
+    </div>
+</section>
+
+
+
+        <hr>
+
+
+  <h3>最近推文</h3>
+  <div class="widget">
+    <ul>
+
+        <li>
+          <a href="/post/78241">计算机网络笔记</a>
+        </li>
+
+        <li>
+          <a href="/post/11231923">关于MySQL的备份与还原</a>
+        </li>
+
+        <li>
+          <a href="/post/1231233">ES简介，以及简单搭建自己的搜索框架</a>
+        </li>
+
+        <li>
+          <a href="/post/12138312">关于MySQL引擎介绍</a>
+        </li>
+
+        <li>
+          <a href="/post/8374593">Redis与MongoDB两种非关系型数据简要介绍</a>
+        </li>
+
+    </ul>
+  </div>
+
+        <hr>
+
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+    <h3><a href="/about.html">关于我</a></h3>
+    <div class="short-about">
+
+
+            <img id = "avatar_pic" src="/static/img/me.jfif" />
+
+            <p>I'm 滑稽狗头，兴趣与数字为伍。目前研究数据采集以及数据分析等业务。</p>
+
+
+    </div>
+</section>
+        <hr>
+
+
+        <!-- Friends Blog -->
+
+<h3>站外链接</h3>
+<ul class="list-inline">
+        <li><a href="https://me.csdn.net/hea_gui_lion" target="_blank">博客</a></li>
+        <li><a href="https://github.com/cchinm" target="_blank">业余小工具地址</a></li>
+</ul>
+
+        <hr>
+
+
+</div>
+
+
+
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://twitter.com/1191627878A" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.baidu.com" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <embed height="53" width="66.66" class="fas fa-circle fa-stack-2x" src="{{ url_for('static', filename='icon/weibo.svg') }}" type="image/svg+xml" />
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/cchinm/" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!----><script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Custom scripts for this template -->
+  <script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script>
+
+</body>
+
+</html>
