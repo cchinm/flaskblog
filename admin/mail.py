@@ -2,8 +2,8 @@ import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
 
-sender = 'iwinter@aliyun.com'
-receivers = ['chinming95@sohu.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+sender = 'your mail'
+receivers = ['your mail 2']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
 
 # 三个参数：第一个为文本内容，第二个 plain 设置文本格式，第三个 utf-8 设置编码
 def sendmail(name, msg, mail):
@@ -15,7 +15,7 @@ def sendmail(name, msg, mail):
     """ % (name, msg)
     print(html)
     message = MIMEText(html, "html","utf-8")
-    message['From'] = Header("iwinter@aliyun.com", 'utf-8')  # 发送者
+    message['From'] = Header("your mail", 'utf-8')  # 发送者
     message['To'] = Header(mail, 'utf-8')  # 接收者
 
     subject = 'CrazyBlog疯部落-反馈回复'
@@ -27,8 +27,8 @@ def sendmail(name, msg, mail):
         smtp.set_debuglevel(0)
         smtp.ehlo()
         # smtp.login("chinming95@sohu.com", "z136789")
-        smtp.login("iwinter@aliyun.com", "zm119162")
-        smtp.sendmail("iwinter@aliyun.com",
+        smtp.login("your mail", "*****")
+        smtp.sendmail("your mail",
                       [mail,],
                       message.as_string())
         smtp.close()
