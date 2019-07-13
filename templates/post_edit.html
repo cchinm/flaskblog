@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='editormd/source/css/editormd.css') }}" />
+<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/blog.js') }}"></script>
+<div>
+    <button onclick="post_publish()">submit</button>
+    <input id="title" VALUE="默认题目">
+</div>
+<div id="test-editor">
+    <textarea style="display:none;" id="content">{{ content | safe }}
+    </textarea>
+</div>
+
+
+<script src="{{ url_for('static', filename='editormd/source/editormd.min.js') }}"></script>
+<script type="text/javascript">
+    $(function() {
+        var editor = editormd("test-editor", {
+             width  : "100%",
+            height: 840,
+            syncScrolling: "single",
+            path   : "{{ url_for('static', filename='editormd/source/lib/') }}"
+        });
+    });
+</script>
+</html>

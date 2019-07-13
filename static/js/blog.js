@@ -59,8 +59,13 @@ function search() {
             var _content="";
 
 			for (var i=0;i<jsonResult.length;i++){
+			    if (jsonResult[i].id > 0){
+			        href = "./post/"+ jsonResult[i].md5_id ;
+			    } else {
+			        href = jsonResult[i].md5_id;
+			    }
                 _content += "<div class=\"post-preview\">\
-                            <a href=\"./post/"+ jsonResult[i].md5_id +"\">\
+                            <a href=\""+ href +"\" target=\"_blank\">\
                             <h2 class=\"post-title\">"+jsonResult[i].title+ "</h2>\
                     <h3 class=\"post-subtitle\">"+jsonResult[i].short_summary+"</h3></a>\
                     <p class=\"post-meta\">Posted by\
@@ -100,6 +105,29 @@ function recent_post() {
             }
             _content += "</ul>"
 			$("#recent_post").html(_content);
+		}
+	});
+}
+
+
+function post_publish() {
+    var content=document.getElementById("content").value
+    var title=document.getElementById("title").value
+	$.ajax({
+		type : "POST",
+		url : "/edit/publish",
+		data : {
+			"content":content,
+			"title":title
+		},
+		success : function(jsonResult) {
+		    if (jsonResult.code > 0)
+		    {
+                alert("提交成功！");
+		    } else {
+		        alert("提交失败！原因:"+jsonResult.msg);
+		    }
+
 		}
 	});
 }

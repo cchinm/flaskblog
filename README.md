@@ -7,3 +7,12 @@
 `python manage.py`
 
 注意运行该项目之前，请在config.py, rdstools.py 配置你的MySQL和Redis连接信息
+
+
+# 更新日志
+2019-07-13 flask+editormd 
+- 添加editormd插件进行md文件编辑
+- 添加蓝图模块，重构博客结构
+- 重新构思博客逻辑，考虑添加登录验证评论功能
+
+不定时更新

@@ -2,11 +2,16 @@
 <html lang="cn">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
+    <title>列表</title>
     <script src="{{ url_for('static', filename='jquery1.42.min.js') }}"></script>
-    {% block head %}{% endblock %}
+
 </head>
 <body>
-{% block content %}{% endblock %}
+<ul>
+    {% for k in list %}
+      <li><a href="/edit/{{ k }}">k</li>
+
+{% endfor %}
+</ul>
 </body>
 </html>

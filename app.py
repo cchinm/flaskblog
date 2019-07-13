@@ -13,7 +13,11 @@ from markdown import markdown
 from datetime import datetime
 import traceback, re
 
-app = Flask(__name__, static_folder='static') # 新建app对象
+from extensions import spider
+from module.edit.edit_app import edit_page
+
+app = Flask(__name__) # 新建app对象
+app.register_blueprint(edit_page)
 app.config.from_object('config') # 加载配置信息，其中有数据库的配置信息，包含在SQLALCHEMY_DATABASE_URI中
 
 db = SQLAlchemy(app)
@@ -82,9 +86,9 @@ def post_one(which_page):
     # client.sadd(READ_COUNT % which_page, int(user_ip))
     if len(data) == 0:
         return redirect("/post.html")
-    if data[3] == "#":
+    if data[3] == "#" or True:
         try:
-            fp = open("/home/zhangzhanming/flask/webapps/blog/document/%s.md" % which_page, encoding="utf8")
+            fp = open("/home/zhangzhanming/flask/webapps/blog/document/%s.md" % "supervisor", encoding="utf8")
             text = fp.read()
             fp.close()
         except:
@@ -114,7 +118,7 @@ def redict_url(which_web_page):
     return render_template(which_web_page)
 
 
-from admin.mail import sendmail
+
 @app.route("/mail/contact_me.php", methods=['POST'])
 def mail():
     formdata = request.form
@@ -123,7 +127,7 @@ def mail():
     return jsonify({"succ":1,"hh":2})
 
 
-@app.route("/s", methods=['GET'])
+@app.route("/ss", methods=['GET'])
 def search():
     db.session.add(UserIpRecord(user_ip=request.remote_addr,
                                 user_visit_time=datetime.now(),
@@ -144,8 +148,16 @@ def search():
         tt.append(tmp)
     return jsonify(tt)
 
+@app.route("/s", methods=['GET'])
+def searchS():
+    k = request.args.get("q")
+    data = spider.get_news(k)
+    return jsonify(data)
+
 
 @app.route('/robots.txt')
 @app.route('/sitemap.xml')
 def static_from_root():
     return send_from_directory(app.static_folder, request.path[1:])
+
+
